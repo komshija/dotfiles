@@ -26,6 +26,7 @@ setup_packages()
 
 	sudo apt install -y \
 			 git \
+			 stow \
 			 g++ \
 			 clang \
 			 cmake \
