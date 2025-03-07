@@ -1,0 +1,12 @@
+files=$(echo $(git diff --name-only --staged))
+
+if [ -n "$files" ]; then
+typos $files
+fi
+
+ # Run local pre-commit hook if exists
+  if [ -e ./.git/hooks/pre-commit ]; then
+    ./.git/hooks/pre-commit "$@"
+  else
+    exit 0
+  fi
