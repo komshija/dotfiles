@@ -17,6 +17,12 @@ install_nvim()
   sudo make install
 }
 
+stow_nvim()
+{
+  cd "$SCRIPT_DIR"
+  stow --restow --target="$HOME" --dir="$PWD" nvim
+}
+
 
 main()
 {
