@@ -10,7 +10,7 @@ install_zsh() {
 }
 
 setup_zsh() {
-  env RUNZSH=no sh -c "$(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  env RUNZSH=no KEEP_ZSHRC=yes CHSH=no sh -c "$(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
     "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || true
@@ -29,28 +29,6 @@ setup_zsh() {
 
 }
 
-backup_conflicts() {
-  BACKUP_DIR="$HOME/.setup-backup"
-
-  mkdir -p "$BACKUP_DIR"
-  cd "$SCRIPT_DIR/zshrc"
-
-  for item in .* *; do
-    if [[ "$item" == "." || "$item" == ".." || -z "$item" ]]; then
-      continue
-    fi
-    
-    target_item="$TARGET_DIR/$item"
-
-    if [[ -e "$target_item" && ! -L "$target_item" ]]; then
-      backup_name="$(basename "$item").bak_$(date +%Y%m%d_%H%M%S)"
-      echo "  - Backing up: $target_item -> $BACKUP_DIR/$backup_name"
-      mv "$target_item" "$BACKUP_DIR/$backup_name"
-    fi
-  done
-
-  cd "$SCRIPT_DIR"
-}
 
 stow_zshrc() {
    cd "$SCRIPT_DIR"
@@ -58,10 +36,9 @@ stow_zshrc() {
 }
 
 main() {
+  stow_zshrc
   install_zsh
   setup_zsh
-  backup_conflicts
-  stow_zshrc
 }
 
 main
