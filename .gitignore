@@ -1,4 +1,4 @@
-./nvim_repo
-./tmux_repo
+nvim_repo/
+tmux_repo/
 
-./nvim/.config/nvim/*.json
+nvim/.config/nvim/*.json
