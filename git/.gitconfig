@@ -7,6 +7,5 @@
 	helper = cache --timeout 86400
 [user]
 	name = Radosavljevic, Milan
-	email = milan.r.radosavljevic@outlook.com
 [core]
 	hooksPath = ~/gitconfig/hooks
