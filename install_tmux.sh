@@ -4,7 +4,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 install_dependencies() {
-  sudo apt install libevent-dev ncurses-dev build-essential bison pkg-config
+  sudo apt install libevent-dev ncurses-dev build-essential bison pkg-config automake stow
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 }
 
 install_tmux() {
