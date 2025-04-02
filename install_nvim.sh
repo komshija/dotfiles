@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 install_dependencies() {
-  sudo apt-get install ninja-build gettext cmake curl build-essential clangd python3-pip pipx
+  sudo apt-get install ninja-build gettext cmake curl build-essential clangd python3-pip pipx ripgrep
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
