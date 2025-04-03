@@ -17,25 +17,24 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lspconfig = require('lspconfig')
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.clangd.setup({})
-      lspconfig.bashls.setup({})
-      lspconfig.yamlls.setup({})
-      lspconfig.vimls.setup({})
-      lspconfig.sqlls.setup({})
-      lspconfig.pylsp.setup({})
-      lspconfig.neocmake.setup({})
-      lspconfig.groovyls.setup({})
-      lspconfig.dockerls.setup({})
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.clangd.setup({ capabilities = capabilities })
+      lspconfig.bashls.setup({ capabilities = capabilities })
+      lspconfig.yamlls.setup({ capabilities = capabilities })
+      lspconfig.vimls.setup({ capabilities = capabilities })
+      lspconfig.sqlls.setup({ capabilities = capabilities })
+      lspconfig.pylsp.setup({ capabilities = capabilities })
+      lspconfig.neocmake.setup({ capabilities = capabilities })
+      lspconfig.groovyls.setup({ capabilities = capabilities })
+      lspconfig.dockerls.setup({ capabilities = capabilities })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+      vim.keymap.set
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
