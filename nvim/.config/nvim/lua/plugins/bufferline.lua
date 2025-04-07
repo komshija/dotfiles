@@ -1,5 +1,5 @@
 return {
-    'akinsho/bufferline.nvim',
+  { 'akinsho/bufferline.nvim',
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function () 
@@ -9,4 +9,17 @@ return {
       }
     })
     end
+  },
+  {
+		"echasnovski/mini.bufremove",
+		version = false,
+		keys = { {
+			"<leader>bd",
+			function()
+				MiniBufremove.delete()
+			end,
+			desc = "Delete buffer",
+		} },
+		opts = {},
+	},
 }

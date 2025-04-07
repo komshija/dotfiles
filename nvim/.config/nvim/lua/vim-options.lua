@@ -1,3 +1,9 @@
+local function map(keys, func, desc, mode)
+	mode = mode or "n"
+	vim.keymap.set(mode, keys, func, { desc = desc })
+end
+
+-- Options --
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -8,12 +14,15 @@ vim.g.background = "light"
 
 vim.opt.swapfile = false
 
--- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
-
-vim.keymap.set('n', '<leader>bd', ':Bdelete<CR>')
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.wo.number = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Key mappings -- 
+map('<c-k>', ':wincmd k<CR>', "Move to pan up")
+map('<c-j>', ':wincmd j<CR>', "Move to pan down")
+map('<c-h>', ':wincmd h<CR>', "Move to pan left")
+map('<c-l>', ':wincmd l<CR>', "Move to pan right")
+
+map('<leader>h', ':nohlsearch<CR>', "Clear hightlight")
+
