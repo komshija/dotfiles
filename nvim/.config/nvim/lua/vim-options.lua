@@ -18,6 +18,9 @@ vim.wo.number = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+
 -- Key mappings -- 
 map('<c-k>', ':wincmd k<CR>', "Move to pan up")
 map('<c-j>', ':wincmd j<CR>', "Move to pan down")
@@ -26,3 +29,7 @@ map('<c-l>', ':wincmd l<CR>', "Move to pan right")
 
 map('<leader>h', ':nohlsearch<CR>', "Clear hightlight")
 
+
+-- Theme config
+
+-- vim.cmd.colorscheme "github_dark_colorblind"

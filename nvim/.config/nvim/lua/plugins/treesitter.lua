@@ -9,6 +9,7 @@ return {
           "bash",
           "c",
           "cpp",
+          "cmake",
           "diff",
           "http",
           "jq",
