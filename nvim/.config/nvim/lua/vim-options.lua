@@ -29,6 +29,8 @@ map('<c-l>', ':wincmd l<CR>', "Move to pan right")
 
 map('<leader>h', ':nohlsearch<CR>', "Clear hightlight")
 
+map('<esc>', [[<C-\><C-n]], "escape for terminal", 't')
+map('jk', [[<C-\><C-n]], "easy escape for terminal", 't')
 
 -- Theme config
 
