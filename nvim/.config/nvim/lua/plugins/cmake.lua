@@ -5,7 +5,7 @@ return {
       direction = 'float'
     },
     config = function() 
-      vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm<CR>', { desc = 'Toggle Terminal'})
+      vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Toggle Terminal'})
     end
   },
   {
